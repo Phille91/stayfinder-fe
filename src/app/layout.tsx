@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
 import { UserProvider } from "./context/user";
+import Nav from "./components/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <header>
           <h1>Stay Finder</h1>
         </header>
-        <UserProvider>{children}</UserProvider>
+        <UserProvider>
+          <Nav />
+          {children}
+        </UserProvider>
       </body>
     </html>
   );

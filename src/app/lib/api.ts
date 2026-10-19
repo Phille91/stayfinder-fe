@@ -1,7 +1,24 @@
 import { Property } from "@/types/api";
 
-export async function getProperties(): Promise<Property[]> {
-  const response = await fetch(`${process.env.API_BASE_URL}/properties`);
+export type PropertyFilters = {
+  location?: string;
+  maxprice?: string;
+  maxguests?: string;
+  sort?: string;
+};
+
+export async function getProperties(
+  filters: PropertyFilters = {},
+): Promise<Property[]> {
+  const params = new URLSearchParams();
+
+  for (const [key, value] of Object.entries(filters)) {
+    if (value) params.set(key, value);
+  }
+
+  const response = await fetch(
+    `${process.env.API_BASE_URL}/properties?${params}`,
+  );
 
   if (!response.ok) {
     throw new Error("Could not fetch properties");
