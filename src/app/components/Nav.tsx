@@ -26,6 +26,7 @@ export default function Nav() {
         <>
           <Link href="/login">Logga in</Link>
           <Link href="/register">Skapa konto</Link>
+          <Link href="/properties/new">Nytt boende</Link>
         </>
       )}
     </nav>
