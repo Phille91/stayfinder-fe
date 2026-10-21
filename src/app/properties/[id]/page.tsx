@@ -1,6 +1,7 @@
 import { getPropertyById } from "@/app/lib/api";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import BookingForm from "@/app/components/BookingForm";
 
 export default async function PropertyPage({
   params,
@@ -24,6 +25,11 @@ export default async function PropertyPage({
 
       <p>{property.price_per_night} kr / natt</p>
       <p>Max {property.max_guests} gäster </p>
+
+      <BookingForm
+        propertyId={property.property_id}
+        pricePerNight={property.price_per_night}
+      />
     </main>
   );
 }
