@@ -31,10 +31,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <header>
-          <h1>Stay Finder</h1>
-        </header>
         <UserProvider>
+          <header>
+            <h1>Stay Finder</h1>
+          </header>
           <Nav />
           {children}
         </UserProvider>
