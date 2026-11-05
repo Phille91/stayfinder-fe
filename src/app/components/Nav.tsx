@@ -19,6 +19,7 @@ export default function Nav() {
 
       {isLoading ? null : user ? (
         <>
+          <Link href="/properties/new">Nytt boende</Link>
           <span>{user.email}</span>
           <button onClick={handleLogout}>Logga ut</button>
         </>
